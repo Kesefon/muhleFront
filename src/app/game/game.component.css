@@ -1,0 +1,22 @@
+.board{
+  display: grid;
+  grid-template-columns: 1.5cm 1.5cm 1.5cm;
+  grid-template-rows: 1.5cm 1.5cm 1.5cm;
+  grid-gap: 0.5ch;
+}
+
+.field{
+  width: 100%;
+  height: 100%;
+  font-family: monospace;
+  font-weight: 900;
+  font-size: 1cm;
+}
+
+.x{
+  color: #FF0099;
+}
+
+.o{
+  color: blue;
+}

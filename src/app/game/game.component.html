@@ -1,0 +1,8 @@
+<div class="board">
+  <div *ngFor="let fieldId of fields">
+    <button class="field" (click)="select(fieldId)" *ngIf="logicService.board[fieldId] == 0"> </button>
+    <button class="field x" *ngIf="logicService.board[fieldId] == 1">X</button>
+    <button class="field o" *ngIf="logicService.board[fieldId] == 2">🞅</button>
+  </div>
+</div>
+<app-status [state]="state"></app-status>
