@@ -5,21 +5,37 @@ import { Injectable } from '@angular/core';
 })
 export class LogicService {
   board: number[] = new Array(9).fill(0);
+  curPlayer: number = 1;
+  multiplayer: boolean = false;
 
   reset(): void {
     this.board.fill(0);
+    this.curPlayer = 1;
   }
 
+  switchPlayer(): void {
+    if (this.curPlayer == 1){this.curPlayer = 2}
+    else {this.curPlayer = 1}
+  }
+
+  aiPlay(player: number): void {
+    var aiDone = false;
+    while (!aiDone && (this.checkEnd() == 0)) {
+      var aiField = Math.floor((Math.random()* 10));
+      if (this.board[aiField] == 0) {
+        this.board[aiField] = player;
+        aiDone = true;
+      }
+    }
+  }
+  
   select(field: number): void {
     if (this.board[field] == 0 && (this.checkEnd() == 0)){
-      this.board[field] = 1;
-      var aiDone = false;
-      while (!aiDone && (this.checkEnd() == 0)) {
-        var aiField = Math.floor((Math.random()* 10));
-        if (this.board[aiField] == 0) {
-          this.board[aiField] = 2;
-          aiDone = true;
-        }
+      this.board[field] = this.curPlayer;
+      this.switchPlayer();
+      if(!this.multiplayer) {
+        this.aiPlay(this.curPlayer);
+        this.switchPlayer();
       }
     }
   }

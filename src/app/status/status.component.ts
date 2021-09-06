@@ -12,6 +12,11 @@ export class StatusComponent implements OnInit {
 
   constructor(private logicService: LogicService) { }
 
+  toggleMultiplayer(): void {
+    if (!this.logicService.multiplayer){this.logicService.multiplayer = true;}
+    else{this.logicService.multiplayer = false;}
+  }
+
   reset(): void {
     this.logicService.reset();
     this.state = 0;
