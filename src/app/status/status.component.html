@@ -1,3 +1,3 @@
 <h2 *ngIf="0 < state && state < 3">Player {{state}} won!</h2>
 <h2 *ngIf="state == 3">It's a tie!</h2>
-<button class="reset" (click)="reset()" *ngIf="state != 0">Reset</button>
+<button class="reset" (click)="reset()" *ngIf="state != 0" [class.x]="state == 1" [class.o]="state == 2">Reset</button>

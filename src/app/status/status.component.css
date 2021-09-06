@@ -1,0 +1,33 @@
+.reset{
+  color: greenyellow;
+  background-color: black;
+  border-top-color : greenyellow;
+  border-left-color: greenyellow;
+  border-right-color: green;
+  border-bottom-color: green;
+  border-top-width: 1.5mm;
+  border-left-width: 1.5mm;
+  border-right-width: 2mm;
+  border-bottom-width: 2mm;
+  font-size: 0.75cm;
+}
+
+.h2{
+  font-size: 1.75cm;
+}
+
+.x{
+  color: #FF0099;
+  border-top-color : #FF0099;
+  border-left-color: #FF0099;
+  border-right-color: darkmagenta;
+  border-bottom-color: darkmagenta;
+}
+
+.o{
+  color: blue;
+  border-top-color : blue;
+  border-left-color: blue;
+  border-right-color: darkblue;
+  border-bottom-color: darkblue;
+}
