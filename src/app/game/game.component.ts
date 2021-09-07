@@ -8,7 +8,6 @@ import { LogicService } from '../logic.service';
 })
 export class GameComponent implements OnInit {
 
-  state: number = 0
   fields: number[] = Array.from(Array(9).keys());
 
   constructor(public logicService: LogicService) { }
@@ -17,7 +16,6 @@ export class GameComponent implements OnInit {
 
   select(field: number): void {
     this.logicService.select(field);
-    this.state = this.logicService.checkEnd()
     console.log(this.logicService.board)
   }
 

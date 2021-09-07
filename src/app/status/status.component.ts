@@ -8,9 +8,7 @@ import { LogicService } from '../logic.service';
 })
 export class StatusComponent implements OnInit {
 
-  @Input()  state: number = 0
-
-  constructor(private logicService: LogicService) { }
+  constructor(public logicService: LogicService) { }
 
   toggleMultiplayer(): void {
     if (!this.logicService.multiplayer){this.logicService.multiplayer = true;}
@@ -19,7 +17,6 @@ export class StatusComponent implements OnInit {
 
   reset(): void {
     this.logicService.reset();
-    this.state = 0;
   }
 
   ngOnInit(): void {
