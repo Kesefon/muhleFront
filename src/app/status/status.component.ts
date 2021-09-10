@@ -19,6 +19,10 @@ export class StatusComponent implements OnInit {
     this.logicService.reset();
   }
 
+  connect(id: any): void {
+    this.logicService.connect(parseInt(id));
+  }
+
   ngOnInit(): void {
   }
 

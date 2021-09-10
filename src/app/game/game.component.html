@@ -1,7 +1,7 @@
-<div class="board">
+<div class="board" *ngIf="logicService.game">
   <div *ngFor="let fieldId of fields">
-    <button class="field" (click)="select(fieldId)" *ngIf="logicService.board[fieldId] == 0"> </button>
-    <button class="field x" *ngIf="logicService.board[fieldId] == 1">X</button>
-    <button class="field o" *ngIf="logicService.board[fieldId] == 2">🞅</button>
+    <button class="field" (click)="select(fieldId)" *ngIf="logicService.game.board[fieldId] == 'EMPTY'"> </button>
+    <button class="field x" *ngIf="logicService.game.board[fieldId] == 'P1'">X</button>
+    <button class="field o" *ngIf="logicService.game.board[fieldId] == 'P2'">🞅</button>
   </div>
 </div>

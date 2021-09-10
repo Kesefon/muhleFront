@@ -1,60 +1,65 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Game } from './game';
+import { share, switchMap, takeUntil } from 'rxjs/operators';
+import { Subject, timer } from 'rxjs';
+import { waitForAsync } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogicService {
-  board: number[] = new Array(9).fill(0);
-  curPlayer: number = 1;
+  
+  private gameUrl: string = 'http://localhost:8080/games';
+  private pollingData: any;
+  private stopPolling = new Subject();
+
+  game: Game | undefined;
   multiplayer: boolean = false;
 
   reset(): void {
-    this.board.fill(0);
-    this.curPlayer = 1;
-  }
-
-  switchPlayer(): void {
-    if (this.curPlayer == 1){this.curPlayer = 2}
-    else {this.curPlayer = 1}
-  }
-
-  aiPlay(player: number): void {
-    var aiDone = false;
-    while (!aiDone && (this.checkEnd() == 0)) {
-      var aiField = Math.floor((Math.random()* 10));
-      if (this.board[aiField] == 0) {
-        this.board[aiField] = player;
-        aiDone = true;
-      }
-    }
+    waitForAsync(this.stopPolling.next);
+    this.http.post<Game>(this.gameUrl, '').subscribe(game => this.game = game);
+    this.pollingData = timer(1000, 1000).pipe(
+      switchMap(() => this.http.get<Game>(this.gameUrl + "/" + this.game?.id)),
+      share(),
+      takeUntil(this.stopPolling)
+    ).subscribe(game => this.game = game)
   }
   
   select(field: number): void {
-    if (this.board[field] == 0 && (this.checkEnd() == 0)){
-      this.board[field] = this.curPlayer;
-      this.switchPlayer();
+    if (this.game != undefined) {
+      this.http.post<Game>(this.gameUrl + "/" + this.game.id + "/play/" + field, '').subscribe(game => this.game = game);
       if(!this.multiplayer) {
-        this.aiPlay(this.curPlayer);
-        this.switchPlayer();
+        this.http.post<Game>(this.gameUrl + "/" + this.game.id + "/play", '').subscribe(game => this.game = game);
       }
     }
   }
 
+  connect(id: number): void {
+    waitForAsync(this.stopPolling.next);
+    this.http.get<Game>(this.gameUrl + "/" + id).subscribe(game => this.game = game);
+    this.pollingData = timer(1000, 1000).pipe(
+      switchMap(() => this.http.get<Game>(this.gameUrl + "/" + this.game?.id)),
+      share(),
+      takeUntil(this.stopPolling)
+    ).subscribe(game => this.game = game)
+  }
+
   checkEnd(): number {
-    //horizontal
-    for (let i of [0,3,6]) {
-      if ((this.board[i] != 0) && (this.board[i] == this.board[i+1]) && (this.board[i] == this.board[i+2])) { return this.board[i]; }
+    if (this.game != undefined) {
+      switch (this.game.state) {
+        case "P1WIN": return 1;
+        case "P2WIN": return 2;
+        case "DRAW": return 3;
+        default: return 0;
+      }
     }
-    //vertical
-    for (let i of [0,1,2]) {
-      if ((this.board[i] != 0) && (this.board[i] == this.board[i+3]) && (this.board[i] == this.board[i+6])) { return this.board[i]; }
-    }
-    //diagonal
-    if ((this.board[0] != 0) && (this.board[0] == this.board[4]) && (this.board[0] == this.board[8])) { return this.board[0]; }
-    if ((this.board[2] != 0) && (this.board[2] == this.board[4]) && (this.board[2] == this.board[6])) { return this.board[2]; }
-    if (!this.board.includes(0)) { return 3; }
     return 0;
   }
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 }

@@ -12,11 +12,13 @@ export class GameComponent implements OnInit {
 
   constructor(public logicService: LogicService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.logicService.reset()
+  }
 
   select(field: number): void {
     this.logicService.select(field);
-    console.log(this.logicService.board)
+    console.log(this.logicService.game)
   }
 
 }
