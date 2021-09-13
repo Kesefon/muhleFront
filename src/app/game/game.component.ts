@@ -8,16 +8,14 @@ import { LogicService } from '../logic.service';
 })
 export class GameComponent implements OnInit {
 
-  fields: number[] = Array.from(Array(9).keys());
-
   constructor(public logicService: LogicService) { }
 
   ngOnInit(): void {
     this.logicService.reset()
   }
 
-  select(field: number): void {
-    this.logicService.select(field);
+  select(ring: number, field: number): void {
+    this.logicService.select(ring, field);
     console.log(this.logicService.game)
   }
 

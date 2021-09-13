@@ -28,9 +28,9 @@ export class LogicService {
     ).subscribe(game => this.game = game)
   }
   
-  select(field: number): void {
+  select(ring: number, field: number): void {
     if (this.game != undefined) {
-      this.http.post<Game>(this.gameUrl + "/" + this.game.id + "/play/" + field, '').subscribe(game => this.game = game);
+      this.http.post<Game>(this.gameUrl + "/" + this.game.id + "/play/" + ring +'/' + field, '').subscribe(game => this.game = game);
       if(!this.multiplayer) {
         this.http.post<Game>(this.gameUrl + "/" + this.game.id + "/play", '').subscribe(game => this.game = game);
       }
