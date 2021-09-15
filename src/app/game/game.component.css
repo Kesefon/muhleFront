@@ -1,15 +1,20 @@
 /*Graphics Design is my passion*/
 
 .center{
+  width: 1cm;
+  height: 1cm;
+  border-radius: 45%;
   font-family: monospace;
   font-weight: 900;
   font-size: 1cm;
   vertical-align: middle;
+  box-shadow: none !important;
+  transition: 1s cubic-bezier(0.7, 0, 0.84, 0);
 }
 
 td{
   border-style: double;
-  border-color: darkslateblue;
+  border-color: #473d8b70;
 }
 
 .inner td{
@@ -17,17 +22,17 @@ td{
 }
 
 .outer .field{
-  border-top-color : honeydew;
-  border-left-color: honeydew;
-  border-right-color: bisque;
-  border-bottom-color: bisque;
+  border-top-color : #f7ec8a;
+  border-left-color: #f7ec8a;
+  border-right-color: #f4e987;
+  border-bottom-color: #f4e987;
 }
 
 .middle .field{
-  border-top-color : salmon;
-  border-left-color: salmon;
-  border-right-color: rosybrown;
-  border-bottom-color: rosybrown;
+  border-top-color : #fa6b5b;
+  border-left-color: #fa6b5b;
+  border-right-color: #f76858;
+  border-bottom-color: #f76858;
 }
 
 .inner .field{
@@ -38,7 +43,7 @@ td{
 }
 
 .field{
-  background-color: black;
+  background-color: #00000062;
   border-top-width: 1.5mm;
   border-left-width: 1.5mm;
   border-right-width: 2mm;
@@ -49,22 +54,38 @@ td{
   font-weight: 900;
   font-size: 1cm;
   vertical-align: middle;
+  transition: .5s;
+}
+
+.field:hover{
+  filter: saturate(1.5);
+  box-shadow: 0 0 0.5cm #f4e98748;
+}
+
+td .x:hover{
+  box-shadow: 0 0 0.5cm #FF0099;
+}
+
+td .o:hover{
+  box-shadow: 0 0 0.5cm #00ccff;
 }
 
 .x{
   color: #FF0099 !important;
-  border-top-color : #FF0099 !important;
-  border-left-color: #FF0099 !important;
+  background-color: #FF0099;
+  border-top-color : #D000A0 !important;
+  border-left-color: #E000B0 !important;
   border-right-color: darkmagenta !important;
   border-bottom-color: darkmagenta !important;
 }
 
 .o{
-  color: blue;
-  border-top-color : blue !important;
-  border-left-color: blue !important;
-  border-right-color: darkblue !important;
-  border-bottom-color: darkblue !important;
+  color: #00aaff;
+  background-color: #00aaff;
+  border-top-color : #00a0f0 !important;
+  border-left-color: #00a0f6 !important;
+  border-right-color: #008b8b !important;
+  border-bottom-color: darkcyan !important;
 }
 
 .moved{

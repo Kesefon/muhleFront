@@ -3,221 +3,157 @@
     <table class="outer">
       <tr>
         <td align="center">
-          <button class="field" (click)="select(0, 0)" *ngIf="logicService.game.board[0][0] == 'EMPTY'"> </button>
-          <button class="field moved" (click)="select(0, 0)" *ngIf="logicService.game.board[0][0] == 'MOVED'"></button>
-          <button class="field x" (click)="select(0, 0)" *ngIf="logicService.game.board[0][0] == 'P1'">X</button>
-          <button class="field o" (click)="select(0, 0)" *ngIf="logicService.game.board[0][0] == 'P2'">🞅</button>
+          <button class="field" [class.x]="logicService.game.board[0][0] == 'P1'"
+            [class.o]="logicService.game.board[0][0] == 'P2'" [class.moved]="logicService.game.board[0][0] == 'MOVED'"
+            (click)="select(0, 0)"> </button>
         </td>
-
         <td align="center"><button class="field" (click)="select(0, 1)"
-            *ngIf="logicService.game.board[0][1] == 'EMPTY'"> </button>
-          <button class="field moved" (click)="select(0, 1)" *ngIf="logicService.game.board[0][1] == 'MOVED'"></button>
-          <button class="field x" (click)="select(0, 1)" *ngIf="logicService.game.board[0][1] == 'P1'">X</button>
-          <button class="field o" (click)="select(0, 1)" *ngIf="logicService.game.board[0][1] == 'P2'">🞅</button>
+            [class.x]="logicService.game.board[0][1] == 'P1'" [class.o]="logicService.game.board[0][1] == 'P2'"
+            [class.moved]="logicService.game.board[0][1] == 'MOVED'"> </button>
         </td>
-
         <td align="center">
-          <button class="field" (click)="select(0, 2)" *ngIf="logicService.game.board[0][2] == 'EMPTY'"> </button>
-          <button class="field moved" (click)="select(0, 2)" *ngIf="logicService.game.board[0][2] == 'MOVED'"></button>
-          <button class="field x" (click)="select(0, 2)" *ngIf="logicService.game.board[0][2] == 'P1'">X</button>
-          <button class="field o" (click)="select(0, 2)" *ngIf="logicService.game.board[0][2] == 'P2'">🞅</button>
+          <button class="field" (click)="select(0, 2)" [class.x]="logicService.game.board[0][2] == 'P1'"
+            [class.o]="logicService.game.board[0][2] == 'P2'" [class.moved]="logicService.game.board[0][2] == 'MOVED'">
+          </button>
         </td>
       </tr>
       <tr>
         <td align="center">
-
-          <button class="field" (click)="select(0, 7)" *ngIf="logicService.game.board[0][7] == 'EMPTY'"> </button>
-          <button class="field moved" (click)="select(0, 7)" *ngIf="logicService.game.board[0][7] == 'MOVED'"></button>
-          <button class="field x" (click)="select(0, 7)" *ngIf="logicService.game.board[0][7] == 'P1'">X</button>
-          <button class="field o" (click)="select(0, 7)" *ngIf="logicService.game.board[0][7] == 'P2'">🞅</button>
+          <button class="field" (click)="select(0, 7)" [class.x]="logicService.game.board[0][7] == 'P1'"
+            [class.o]="logicService.game.board[0][7] == 'P2'" [class.moved]="logicService.game.board[0][7] == 'MOVED'">
+          </button>
         </td>
         <td align="center">
           <table class="middle">
             <tr>
               <td align="center">
-                <button class="field" (click)="select(1, 0)" *ngIf="logicService.game.board[1][0] == 'EMPTY'"> </button>
-                <button class="field moved" (click)="select(1, 0)"
-                  *ngIf="logicService.game.board[1][0] == 'MOVED'"></button>
-                <button class="field x" (click)="select(1, 0)" *ngIf="logicService.game.board[1][0] == 'P1'">X</button>
-                <button class="field o" (click)="select(1, 0)" *ngIf="logicService.game.board[1][0] == 'P2'">🞅</button>
+                <button class="field" (click)="select(1, 0)" [class.x]="logicService.game.board[1][0] == 'P1'"
+                  [class.o]="logicService.game.board[1][0] == 'P2'"
+                  [class.moved]="logicService.game.board[1][0] == 'MOVED'"> </button>
               </td>
               <td align="center">
-                <button class="field" (click)="select(1, 1)" *ngIf="logicService.game.board[1][1] == 'EMPTY'"> </button>
-                <button class="field moved" (click)="select(1, 1)"
-                  *ngIf="logicService.game.board[1][1] == 'MOVED'"></button>
-                <button class="field x" (click)="select(1, 1)" *ngIf="logicService.game.board[1][1] == 'P1'">X</button>
-                <button class="field o" (click)="select(1, 1)" *ngIf="logicService.game.board[1][1] == 'P2'">🞅</button>
+                <button class="field" (click)="select(1, 1)" [class.x]="logicService.game.board[1][1] == 'P1'"
+                  [class.o]="logicService.game.board[1][1] == 'P2'"
+                  [class.moved]="logicService.game.board[1][1] == 'MOVED'"> </button>
               </td>
               <td align="center">
-                <button class="field" (click)="select(1, 2)" *ngIf="logicService.game.board[1][2] == 'EMPTY'"> </button>
-                <button class="field moved" (click)="select(1, 2)"
-                  *ngIf="logicService.game.board[1][2] == 'MOVED'"></button>
-                <button class="field x" (click)="select(1, 2)" *ngIf="logicService.game.board[1][2] == 'P1'">X</button>
-                <button class="field o" (click)="select(1, 2)" *ngIf="logicService.game.board[1][2] == 'P2'">🞅</button>
+                <button class="field" (click)="select(1, 2)" [class.x]="logicService.game.board[1][2] == 'P1'"
+                  [class.o]="logicService.game.board[1][2] == 'P2'"
+                  [class.moved]="logicService.game.board[1][2] == 'MOVED'"> </button>
               </td>
             </tr>
             <tr>
               <td align="center">
-                <button class="field" (click)="select(1, 7)" *ngIf="logicService.game.board[1][7] == 'EMPTY'"> </button>
-                <button class="field moved" (click)="select(1, 7)"
-                  *ngIf="logicService.game.board[1][7] == 'MOVED'"></button>
-                <button class="field x" (click)="select(1, 7)" *ngIf="logicService.game.board[1][7] == 'P1'">X</button>
-                <button class="field o" (click)="select(1, 7)" *ngIf="logicService.game.board[1][7] == 'P2'">🞅</button>
+                <button class="field" (click)="select(1, 7)" [class.x]="logicService.game.board[1][7] == 'P1'"
+                  [class.o]="logicService.game.board[1][7] == 'P2'"
+                  [class.moved]="logicService.game.board[1][7] == 'MOVED'"> </button>
               </td>
               <td align="center">
                 <table class="inner">
                   <tr>
                     <td align="center"><button class="field" (click)="select(2, 0)"
-                        *ngIf="logicService.game.board[2][0] == 'EMPTY'">
+                        [class.x]="logicService.game.board[2][0] == 'P1'"
+                        [class.o]="logicService.game.board[2][0] == 'P2'"
+                        [class.moved]="logicService.game.board[2][0] == 'MOVED'">
                       </button>
-                      <button class="field moved" (click)="select(2, 0)"
-                        *ngIf="logicService.game.board[2][0] == 'MOVED'"></button>
-                      <button class="field x" (click)="select(2, 0)"
-                        *ngIf="logicService.game.board[2][0] == 'P1'">X</button>
-                      <button class="field o" (click)="select(2, 0)"
-                        *ngIf="logicService.game.board[2][0] == 'P2'">🞅</button>
                     </td>
                     <td align="center">
-                      <button class="field" (click)="select(2, 1)" *ngIf="logicService.game.board[2][1] == 'EMPTY'">
+                      <button class="field" (click)="select(2, 1)" [class.x]="logicService.game.board[2][1] == 'P1'"
+                        [class.o]="logicService.game.board[2][1] == 'P2'"
+                        [class.moved]="logicService.game.board[2][1] == 'MOVED'">
                       </button>
-                      <button class="field moved" (click)="select(2, 1)"
-                        *ngIf="logicService.game.board[2][1] == 'MOVED'"></button>
-                      <button class="field x" (click)="select(2, 1)"
-                        *ngIf="logicService.game.board[2][1] == 'P1'">X</button>
-                      <button class="field o" (click)="select(2, 1)"
-                        *ngIf="logicService.game.board[2][1] == 'P2'">🞅</button>
                     </td>
                     <td align="center">
-                      <button class="field" (click)="select(2, 2)" *ngIf="logicService.game.board[2][2] == 'EMPTY'">
+                      <button class="field" (click)="select(2, 2)" [class.x]="logicService.game.board[2][2] == 'P1'"
+                        [class.o]="logicService.game.board[2][2] == 'P2'"
+                        [class.moved]="logicService.game.board[2][2] == 'MOVED'">
                       </button>
-                      <button class="field moved" (click)="select(2, 2)"
-                        *ngIf="logicService.game.board[2][2] == 'MOVED'"></button>
-                      <button class="field x" (click)="select(2, 2)"
-                        *ngIf="logicService.game.board[2][2] == 'P1'">X</button>
-                      <button class="field o" (click)="select(2, 2)"
-                        *ngIf="logicService.game.board[2][2] == 'P2'">🞅</button>
                     </td>
                   </tr>
                   <tr>
                     <td align="center"> <button class="field" (click)="select(2, 7)"
-                        *ngIf="logicService.game.board[2][7] == 'EMPTY'">
+                        [class.x]="logicService.game.board[2][7] == 'P1'"
+                        [class.o]="logicService.game.board[2][7] == 'P2'"
+                        [class.moved]="logicService.game.board[2][7] == 'MOVED'">
                       </button>
-                      <button class="field moved" (click)="select(2, 7)"
-                        *ngIf="logicService.game.board[2][7] == 'MOVED'"></button>
-                      <button class="field x" (click)="select(2, 7)"
-                        *ngIf="logicService.game.board[2][7] == 'P1'">X</button>
-                      <button class="field o" (click)="select(2, 7)"
-                        *ngIf="logicService.game.board[2][7] == 'P2'">🞅</button>
                     </td>
                     <td align="center">
-                      <div><span class="center x" *ngIf="logicService.game.currentPlayer == 'P1'">X</span></div>
-                      <div><span class="center o" *ngIf="logicService.game.currentPlayer == 'P2'">🞅</span></div>
+                      <div><div class="center" [class.x]="logicService.game.currentPlayer == 'P1'" [class.o]="logicService.game.currentPlayer == 'P2'"></div></div>
                     </td>
                     <td align="center">
-                      <button class="field" (click)="select(2, 3)" *ngIf="logicService.game.board[2][3] == 'EMPTY'">
+                      <button class="field" (click)="select(2, 3)" [class.x]="logicService.game.board[2][3] == 'P1'"
+                        [class.o]="logicService.game.board[2][3] == 'P2'"
+                        [class.moved]="logicService.game.board[2][3] == 'MOVED'">
                       </button>
-                      <button class="field moved" (click)="select(2, 3)"
-                        *ngIf="logicService.game.board[2][3] == 'MOVED'"></button>
-                      <button class="field x" (click)="select(2, 3)"
-                        *ngIf="logicService.game.board[2][3] == 'P1'">X</button>
-                      <button class="field o" (click)="select(2, 3)"
-                        *ngIf="logicService.game.board[2][3] == 'P2'">🞅</button>
                     </td>
                   </tr>
                   <tr>
                     <td align="center"> <button class="field" (click)="select(2, 6)"
-                        *ngIf="logicService.game.board[2][6] == 'EMPTY'">
+                        [class.x]="logicService.game.board[2][6] == 'P1'"
+                        [class.o]="logicService.game.board[2][6] == 'P2'"
+                        [class.moved]="logicService.game.board[2][6] == 'MOVED'">
                       </button>
-                      <button class="field moved" (click)="select(2, 6)"
-                        *ngIf="logicService.game.board[2][6] == 'MOVED'"></button>
-                      <button class="field x" (click)="select(2, 6)"
-                        *ngIf="logicService.game.board[2][6] == 'P1'">X</button>
-                      <button class="field o" (click)="select(2, 6)"
-                        *ngIf="logicService.game.board[2][6] == 'P2'">🞅</button>
                     </td>
                     <td align="center">
-                      <button class="field" (click)="select(2, 5)" *ngIf="logicService.game.board[2][5] == 'EMPTY'">
+                      <button class="field" (click)="select(2, 5)" [class.x]="logicService.game.board[2][5] == 'P1'"
+                        [class.o]="logicService.game.board[2][5] == 'P2'"
+                        [class.moved]="logicService.game.board[2][5] == 'MOVED'">
                       </button>
-                      <button class="field moved" (click)="select(2, 5)"
-                        *ngIf="logicService.game.board[2][5] == 'MOVED'"></button>
-                      <button class="field x" (click)="select(2, 5)"
-                        *ngIf="logicService.game.board[2][5] == 'P1'">X</button>
-                      <button class="field o" (click)="select(2, 5)"
-                        *ngIf="logicService.game.board[2][5] == 'P2'">🞅</button>
                     </td>
                     <td align="center">
-                      <button class="field" (click)="select(2, 4)" *ngIf="logicService.game.board[2][4] == 'EMPTY'">
+                      <button class="field" (click)="select(2, 4)" [class.x]="logicService.game.board[2][4] == 'P1'"
+                        [class.o]="logicService.game.board[2][4] == 'P2'"
+                        [class.moved]="logicService.game.board[2][4] == 'MOVED'">
                       </button>
-                      <button class="field moved" (click)="select(2, 4)"
-                        *ngIf="logicService.game.board[2][4] == 'MOVED'"></button>
-                      <button class="field x" (click)="select(2, 4)"
-                        *ngIf="logicService.game.board[2][4] == 'P1'">X</button>
-                      <button class="field o" (click)="select(2, 4)"
-                        *ngIf="logicService.game.board[2][4] == 'P2'">🞅</button>
                     </td>
                   </tr>
                 </table>
               </td>
               <td align="center"> <button class="field" (click)="select(1, 3)"
-                  *ngIf="logicService.game.board[1][3] == 'EMPTY'">
+                  [class.x]="logicService.game.board[1][3] == 'P1'" [class.o]="logicService.game.board[1][3] == 'P2'"
+                  [class.moved]="logicService.game.board[1][3] == 'MOVED'">
                 </button>
-                <button class="field x" (click)="select(1, 3)" *ngIf="logicService.game.board[1][3] == 'P1'">X</button>
-                <button class="field o" (click)="select(1, 3)" *ngIf="logicService.game.board[1][3] == 'P2'">🞅</button>
               </td>
             </tr>
             <tr>
               <td align="center">
-                <button class="field" (click)="select(1, 6)" *ngIf="logicService.game.board[1][6] == 'EMPTY'"> </button>
-                <button class="field moved" (click)="select(1, 6)"
-                  *ngIf="logicService.game.board[1][6] == 'MOVED'"></button>
-                <button class="field x" (click)="select(1, 6)" *ngIf="logicService.game.board[1][6] == 'P1'">X</button>
-                <button class="field o" (click)="select(1, 6)" *ngIf="logicService.game.board[1][6] == 'P2'">🞅</button>
+                <button class="field" (click)="select(1, 6)" [class.x]="logicService.game.board[1][6] == 'P1'"
+                  [class.o]="logicService.game.board[1][6] == 'P2'"
+                  [class.moved]="logicService.game.board[1][6] == 'MOVED'"> </button>
               </td>
               <td align="center">
-                <button class="field" (click)="select(1, 5)" *ngIf="logicService.game.board[1][5] == 'EMPTY'"> </button>
-                <button class="field moved" (click)="select(1, 5)"
-                  *ngIf="logicService.game.board[1][5] == 'MOVED'"></button>
-                <button class="field x" (click)="select(1, 5)" *ngIf="logicService.game.board[1][5] == 'P1'">X</button>
-                <button class="field o" (click)="select(1, 5)" *ngIf="logicService.game.board[1][5] == 'P2'">🞅</button>
+                <button class="field" (click)="select(1, 5)" [class.x]="logicService.game.board[1][5] == 'P1'"
+                  [class.o]="logicService.game.board[1][5] == 'P2'"
+                  [class.moved]="logicService.game.board[1][5] == 'MOVED'"> </button>
               </td>
               <td align="center">
-                <button class="field" (click)="select(1, 4)" *ngIf="logicService.game.board[1][4] == 'EMPTY'"> </button>
-                <button class="field moved" (click)="select(1, 4)"
-                  *ngIf="logicService.game.board[1][4] == 'MOVED'"></button>
-                <button class="field x" (click)="select(1, 4)" *ngIf="logicService.game.board[1][4] == 'P1'">X</button>
-                <button class="field o" (click)="select(1, 4)" *ngIf="logicService.game.board[1][4] == 'P2'">🞅</button>
+                <button class="field" (click)="select(1, 4)" [class.x]="logicService.game.board[1][4] == 'P1'"
+                  [class.o]="logicService.game.board[1][4] == 'P2'"
+                  [class.moved]="logicService.game.board[1][4] == 'MOVED'"> </button>
               </td>
             </tr>
           </table>
         </td>
-
         <td align="center">
-          <button class="field" (click)="select(0, 3)" *ngIf="logicService.game.board[0][3] == 'EMPTY'"> </button>
-          <button class="field moved" (click)="select(0, 3)" *ngIf="logicService.game.board[0][3] == 'MOVED'"></button>
-          <button class="field x" (click)="select(0, 3)" *ngIf="logicService.game.board[0][3] == 'P1'">X</button>
-          <button class="field o" (click)="select(0, 3)" *ngIf="logicService.game.board[0][3] == 'P2'">🞅</button>
+          <button class="field" (click)="select(0, 3)" [class.x]="logicService.game.board[0][3] == 'P1'"
+            [class.o]="logicService.game.board[0][3] == 'P2'" [class.moved]="logicService.game.board[0][3] == 'MOVED'">
+          </button>
         </td>
       </tr>
       <tr>
         <td align="center">
-          <button class="field" (click)="select(0, 6)" *ngIf="logicService.game.board[0][6] == 'EMPTY'"> </button>
-          <button class="field moved" (click)="select(0, 6)" *ngIf="logicService.game.board[0][6] == 'MOVED'"></button>
-          <button class="field x" (click)="select(0, 6)" *ngIf="logicService.game.board[0][6] == 'P1'">X</button>
-          <button class="field o" (click)="select(0, 6)" *ngIf="logicService.game.board[0][6] == 'P2'">🞅</button>
+          <button class="field" (click)="select(0, 6)" [class.x]="logicService.game.board[0][6] == 'P1'"
+            [class.o]="logicService.game.board[0][6] == 'P2'" [class.moved]="logicService.game.board[0][6] == 'MOVED'">
+          </button>
         </td>
-
         <td align="center"> <button class="field" (click)="select(0, 5)"
-            *ngIf="logicService.game.board[0][5] == 'EMPTY'"> </button>
-          <button class="field moved" (click)="select(0, 5)" *ngIf="logicService.game.board[0][5] == 'MOVED'"></button>
-          <button class="field x" (click)="select(0, 5)" *ngIf="logicService.game.board[0][5] == 'P1'">X</button>
-          <button class="field o" (click)="select(0, 5)" *ngIf="logicService.game.board[0][5] == 'P2'">🞅</button>
+            [class.x]="logicService.game.board[0][5] == 'P1'" [class.o]="logicService.game.board[0][5] == 'P2'"
+            [class.moved]="logicService.game.board[0][5] == 'MOVED'"> </button>
         </td>
-
         <td align="center">
-          <button class="field" (click)="select(0, 4)" *ngIf="logicService.game.board[0][4] == 'EMPTY'"> </button>
-          <button class="field moved" (click)="select(0, 4)" *ngIf="logicService.game.board[0][4] == 'MOVED'"></button>
-          <button class="field x" (click)="select(0, 4)" *ngIf="logicService.game.board[0][4] == 'P1'">X</button>
-          <button class="field o" (click)="select(0, 4)" *ngIf="logicService.game.board[0][4] == 'P2'">🞅</button>
+          <button class="field" (click)="select(0, 4)" [class.x]="logicService.game.board[0][4] == 'P1'"
+            [class.o]="logicService.game.board[0][4] == 'P2'" [class.moved]="logicService.game.board[0][4] == 'MOVED'">
+          </button>
         </td>
       </tr>
     </table>

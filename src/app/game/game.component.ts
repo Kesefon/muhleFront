@@ -16,7 +16,6 @@ export class GameComponent implements OnInit {
 
   select(ring: number, field: number): void {
     this.logicService.select(ring, field);
-    console.log(this.logicService.game)
   }
 
 }

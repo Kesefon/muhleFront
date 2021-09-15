@@ -16,7 +16,7 @@ export class LogicService {
   private stopPolling = new Subject();
 
   game: Game | undefined;
-  multiplayer: boolean = false;
+  multiplayer: boolean = true;
 
   reset(): void {
     waitForAsync(this.stopPolling.next);
@@ -30,10 +30,13 @@ export class LogicService {
   
   select(ring: number, field: number): void {
     if (this.game != undefined) {
-      this.http.post<Game>(this.gameUrl + "/" + this.game.id + "/play/" + ring +'/' + field, '').subscribe(game => this.game = game);
-      if(!this.multiplayer) {
-        this.http.post<Game>(this.gameUrl + "/" + this.game.id + "/play", '').subscribe(game => this.game = game);
-      }
+      this.http.post<Game>(this.gameUrl + "/" + this.game.id + "/play/" + ring +'/' + field, '').subscribe(game => {
+        this.game = game;
+        
+        if(!this.multiplayer && this.game.currentPlayer != "P1") {
+          this.http.post<Game>(this.gameUrl + "/" + this.game.id + "/play", '').subscribe(game => this.game = game);
+        }
+      })
     }
   }
 

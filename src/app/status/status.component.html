@@ -1,6 +1,7 @@
-<label for="idBox" *ngIf="logicService.game"><h3>Game id:</h3></label>
-<input #idBox id=idBox (change)="connect(idBox.value); idBox.value = ''" placeholder="{{logicService.game.id}}" *ngIf="logicService.game">
-<h3><input type="checkbox" id="multiplayer" (click)="toggleMultiplayer()"><label for="multiplayer">Multiplayer</label></h3>
 <h2 *ngIf="0 < logicService.checkEnd() && logicService.checkEnd() < 3">Player {{logicService.checkEnd()}} won!</h2>
 <h2 *ngIf="logicService.checkEnd() == 3">It's a tie!</h2>
 <button class="reset" (click)="reset()" *ngIf="logicService.checkEnd() != 0" [class.x]="logicService.checkEnd() == 1" [class.o]="logicService.checkEnd() == 2">New Game</button>
+
+<label for="idBox" *ngIf="logicService.game"><h3>Game id:</h3></label>
+<input class="idBox" #idBox id=idBox (change)="connect(idBox.value); idBox.value = ''" placeholder="{{logicService.game.id}}" *ngIf="logicService.game">
+<h3><input type="checkbox" checked="checked" id="multiplayer" (click)="toggleMultiplayer()"><label for="multiplayer">Multiplayer</label></h3>
