@@ -4,10 +4,10 @@
   width: 1cm;
   height: 1cm;
   border-radius: 45%;
-  font-family: monospace;
+  color: white !important;
+  font-family: "Comic Sans MS";
   font-weight: 900;
-  font-size: 1cm;
-  vertical-align: middle;
+  font-size: 0.7cm;
   box-shadow: none !important;
   transition: 1s cubic-bezier(0.7, 0, 0.84, 0);
 }
@@ -71,7 +71,7 @@ td .o:hover{
 }
 
 .x{
-  color: #FF0099 !important;
+  color: #FF0099;
   background-color: #FF0099;
   border-top-color : #D000A0 !important;
   border-left-color: #E000B0 !important;

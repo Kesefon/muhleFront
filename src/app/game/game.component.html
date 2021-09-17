@@ -78,7 +78,7 @@
                       </button>
                     </td>
                     <td align="center">
-                      <div><div class="center" [class.x]="logicService.game.currentPlayer == 'P1'" [class.o]="logicService.game.currentPlayer == 'P2'"></div></div>
+                      <div><div class="center" [class.x]="logicService.game.currentPlayer == 'P1'" [class.o]="logicService.game.currentPlayer == 'P2'">{{getTurnCount()}}</div></div>
                     </td>
                     <td align="center">
                       <button class="field" (click)="select(2, 3)" [class.x]="logicService.game.board[2][3] == 'P1'"

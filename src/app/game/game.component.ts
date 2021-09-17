@@ -18,4 +18,11 @@ export class GameComponent implements OnInit {
     this.logicService.select(ring, field);
   }
 
+  getTurnCount(): number {
+    if (this.logicService.game) {
+      return Math.round(this.logicService.game.turn / 2 + 0.5)
+    }
+    return 0
+  }
+
 }
