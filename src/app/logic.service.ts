@@ -11,7 +11,7 @@ import { waitForAsync } from '@angular/core/testing';
 })
 export class LogicService {
   
-  private gameUrl: string = 'http://localhost:8080/games';
+  private gameUrl: string = 'http://' + window.location.hostname + ':8080/games';
   private pollingData: any;
   private stopPolling = new Subject();
 
